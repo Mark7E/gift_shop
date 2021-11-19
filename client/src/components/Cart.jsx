@@ -97,7 +97,7 @@ const Cart = (props) => {
                                                 {
                                                     <img src={item.imageUrl} alt="" style={{ width: 300, borderRadius: 60 }} />
                                                 }
-                                                <h4>{item.description}</h4>
+                                                <p>{item.description}</p>
                                                 <h4>{item.qty}
                                                     <button onClick={() => qtyPlus(item._id, item.qty) } >+</button>
                                                     <button onClick={(e) =>  qtyMin(item._id, item.qty) }>-</button>

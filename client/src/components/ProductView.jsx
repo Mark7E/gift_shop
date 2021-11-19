@@ -51,11 +51,14 @@ const ProductView = (props) => {
         }
 
         if (cart.toString() != 0) {
+            let flag = false
             for (const item of cart) {
                 if (id === item.itemId) {
+                    flag = true
                     const updatedItem = { qty: item.qty += (qty * 1), price: (qty * item.price) }
                     axios.put('http://localhost:8000/api/cart/' + item._id, updatedItem)
                     history.push("/cart")
+                    window.location.reload()
                 }
 
                 else if (cart.hasOwnProperty(item.title)) {
@@ -63,8 +66,9 @@ const ProductView = (props) => {
 
                     axios.put('http://localhost:8000/api/cart/' + item._id, updatedItem)
                     history.push("/cart")
+                    window.location.reload()
                 }
-                else {
+                if(flag==false) {
                     axios.post('http://localhost:8000/api/cart/new', cartItem)
                         .then(res => {
                             history.push("/cart")
