@@ -23,8 +23,20 @@ const CheckOut = (props) => {
     }
 
     const placeOrder = () => {
+        for (const item of cart) {
+            axios.delete("http://localhost:8000/api/cart/" + item._id)
+                .then(res => {
+                    console.log(res.data)
+                })
+                .catch(err => console.log(err))
+            console.log("delete");
+        }
         history.push('/thankyou');
     }
+
+
+
+
 
     return (
         <div>
