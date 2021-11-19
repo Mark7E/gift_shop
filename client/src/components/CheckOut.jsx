@@ -71,7 +71,7 @@ const CheckOut = (props) => {
                         
 
                     }
-                      {/* <h3>
+                      <h3>
                         SubTotal: $
                         {
                         cart.reduce((sum, i) => (
@@ -83,16 +83,16 @@ const CheckOut = (props) => {
                         Tax: $
                         {
                         cart.reduce((sum, i) => (
-                            sum += (i.qty * i.price )*0.6625
+                            sum += (i.qty * i.price )*0.06625
                         ), 0).toFixed(2)
                         }
-                    </h3> */}
+                    </h3>
                     <h3>
                         Total: $
                         {
                         cart.reduce((sum, i) => (
-                            sum += i.qty * i.price
-                        ), 0).toFixed(2)
+                            sum += (i.qty * i.price) + (i.qty * i.price )*0.06625
+                        ), 0 ).toFixed(2)
                         }
                     </h3>
                     <button className="btn btn-2" onClick={placeOrder}>Place Order</button>
